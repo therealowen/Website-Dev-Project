@@ -1,0 +1,1 @@
+Basic static webpage scripts
