@@ -55,3 +55,30 @@ body {font-family: Arial, Helvetica, sans-serif;}
     color: black;
     font-size: 200%;
 }
+
+/*new*/
+.modal {
+    position: fixed;
+    display: none;
+    z-index:10;			/* Make sure modal displays on top of content */
+    bottom: 20%;			/* Position 20% from page bottom */
+    left: 10%;			/* Set horiz position ½ page width */
+    width: 80%;			/* Modal should take up 80% of browser width */
+    height: 80px;
+    /*height: 5%;*/
+    background-color: #ff6700;		/* Use an aquamarine color for the modal */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    -webkit-animation-name: fadeIn; /* Fade in the modal */
+    -webkit-animation-duration: 2s;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+.close	{
+    color: white;
+    float: right;
+    font-size: 25px;
+    opacity: 0.8;
+}
