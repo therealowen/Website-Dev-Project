@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    padding: 5px;
+}
+
+
+.column1 {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+
+div {
+    background-color: #ddd6d0;
+    text-align: center;
+}
+
