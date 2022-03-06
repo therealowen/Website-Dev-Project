@@ -1,3 +1,29 @@
+<html>
+<head>
+    <title>Here are the results</title>
+    <style>
+        table {
+            margin: 8px;
+        }
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            background: #666;
+            color: #FFF;
+            padding: 2px 6px;
+            border-collapse: separate;
+            border: 1px solid #000;
+        }
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            border: 1px solid #DDD;
+        }
+    </style>
+</head>
+<body>
 <?php
 $paintings = file("ArtData.txt");
 $delimiter = ',';	// the data is comma-delimited
@@ -32,29 +58,24 @@ $aname = $_GET["aName"];
 
 
 $stack = array();
+$tabel_arr = array();
 foreach ($paintings as $painting) {
     $paintingFields = explode($delimiter, $painting);
     $stack[] = $paintingFields;
 }
 
 $temp = 0;
-$renameMap = [
-    'old1' => 'new1',
-    'old2' => 'new2'
-];
-
-$stack = array_combine(array_map(function($el) use ($renameMap) {
-    return $renameMap[$el];
-}, array_keys($stack)), array_values($stack));
-
-
 
 foreach ($stack as $painting){
-    $artist = $painting[1];
+    $paintings = array();
+    $paintings['ID']= $painting[0];
+    $paintings['Artist'] = $painting[1];
+    $paintings['Title'] = $painting[2];
+    $paintings['Year'] = $painting[3];
 
-    if ($artist == $aname) {
-        $output = $id . " " . $artist . " " . $title . " " . $year;
-        echo "<b>" . $output . "</b> <br />";
+
+    if ($paintings['Artist'] == $aname) {
+        $tabel_arr[] = $paintings;
     }   else {
         $temp++;
     }
@@ -88,5 +109,7 @@ function build_table($array){
     $html .= '</table>';
     return $html;
 }
-
+echo build_table($tabel_arr);
 ?>
+</body>
+</html>
