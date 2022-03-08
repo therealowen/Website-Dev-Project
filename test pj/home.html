@@ -1,32 +1,323 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link type="text/css" rel="styleSheet"  href="ref.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+
+        img {
+            transition:transform 0.25s ease;
+
+        }
+
+        img:active {
+            -webkit-transform:scale(1.5);
+            transform:scale(1.5);
+        }
+
+        /* Header/Blog Title */
+        .header {
+            background-image: url("MediaFiles/bg.jpg");
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 50px;
+            color: rgb(50, 50, 153)
+
+        }
+
+        h1 a:link { text-decoration: none; color: rgb(50, 50, 153);}
+        h1 a:visited { text-decoration: none; color: rgb(50, 50, 153)}
+        h1 a:hover { text-decoration: none; color: rgb(50, 50, 153)}
+        h1 a:active { text-decoration: none; color: rgb(50, 50, 153)}
+
+
+        /* Style the top navigation bar */
+        .ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(50, 50, 153);
+            position: sticky;
+            top: 0;
+        }
+
+        /* Style the ul links */
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: rgb(0, 10, 20);
+        }
+
+        .active {
+            background-color: rgb(0, 10, 20);
+        }
+
+
+
+
+        /* The Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: blue;
+            color: white;
+        }
+
+        .modal-body {padding: 16px 16px;}
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: blue;
+            color: white;
+        }
+
+
+
+
+        /* two columns horizontal */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            background-color: #f1f1f1;
+            padding-left: 20px;
+        }
+
+
+
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+
+
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: rgb(50, 50, 153);
+            margin-top: 20px;
+        }
+
+        .footer h2{
+            font-size: 12px;
+            color: grey
+        }
+
+
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+            .topnav a {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- For demo purpose -->
 
-<div class="footer-basic">
-    <footer>
-        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Home</a></li>
-            <li class="list-inline-item"><a href="#">Services</a></li>
-            <li class="list-inline-item"><a href="#">About</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-        </ul>
-        <p class="copyright">Company Name © 2018</p>
-    </footer>
+<div class="header">
+    <h1 id="logo"><a href="index.html"><img src="MediaFiles/logo.png" height = 40px weight = 40px alt="logo" /> Focus</a></h1>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+<div class="ul">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="product.html">Product</a></li>
+    <li><a class="active" href="aboutus.html">About Us</a></li>
+    <li style="float:right"><a id="lgBtn">Sign Up to Our Newsletter</a></li>
+</div>
+
+<!-- The Modal -->
+<div id="Modal" class="modal">
+
+    <!-- Modal content -->
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Sign up and Explore Focus</h2>
+        </div>
+        <div class="modal-body">
+            <form action="http://localhost/getinfo.php" method="get">
+                <p>
+                    User Name: <input type="text" name="userName" />
+                    &nbsp;&nbsp;&nbsp  <br><br>
+                    Phone Number: <input type="text" name="phonenumber" />
+                    &nbsp;&nbsp;&nbsp  <br><br>
+                    Email: <input type="email" name="email" />
+                    &nbsp;&nbsp;&nbsp  <br><br>
+                    <input type="submit" value="Submit" />
+                </p>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <h3>Subscribe to our newsletter and get the latest of our best products!</h3>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>About our group</h2>
+            <iframe width="800" height="500" src="MediaFiles/team.mp4" frameborder="0" allowfullscreen></iframe>
+            <p>
+                All the efforts, all the bests.
+            </p>
+        </div>
+        <div class="card">
+            <h2>About our technology --- Mirrorless</h2>
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/p5PvHlk3yig" frameborder="0" allowfullscreen></iframe>
+            <p>
+                What is a mirrorless camera, what’s the difference, and why does it matter? To find out, let’s take a quick trip through the history of the medium. Many of the adaptations to how cameras work have been improvements to solve a simple issue: How can both the user and whatever’s being captured be shown the same way?
+                Originally, photographs used coated metal or glass plates with photosensitive liquid. This would go behind the lens after the photographer looked through where the plate would be placed to frame the photo. To make it quicker, a second lens was added near the first to allow framing and focus without adjusting the primary lens.
+                This camera design still persists. We call them “rangefinder” cameras. The lens you look through has additional functionality, specifically the ability of setting focus.
+                Mirrors were added around 1900, creating two new camera types. One had a mirror that bounced the image from the extra lens onto a small translucent screen; a second lens just beneath it opened onto the shutter and the film itself. When you focused the first lens, you would also focus the second lens.
+                For the second design, the mirror sat between the lens and the film, reflecting the image through a prism. When you hit the shutter button, the mirror flipped out of the way and the shutter opened on the film. The next iteration of cameras used LCDs.
+                While the early digital cameras of the late 90’s and early 2000’s were mirrorless in a sense, the term SLR is now usually used to refer to cameras with interchangeable lenses, manual controls, and often an electronic viewfinder.
+                Mirrorless cameras have created a middle ground in the photography market long divided into “cheap” and “serious.” The mirrorless camera is compact, powerful, and intuitive, in some ways the best of both worlds.
+            </p>
+        </div>
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>About John Doe our CEO</h2>
+            <img src="MediaFiles/ceo.png" alt="ceo" width="200" height="170">
+            <p>Act as the figurative head of the organization when communicating with stockholders, government entities and the general public.</p>
+            <p>Lead the development of the organization’s long- and short-term strategies.</p>
+            <p>Manage overall operations and make major decisions affecting the organization.</p>
+            <p>Manage the organization’s resources.</p>
+            <p>Negotiate or approve agreements and contracts for the organization.</p>
+        </div>
+        <div class="card">
+            <h3>Contact Us</h3>
+            <p>Customer service: 4008208820</p>
+            <p>Adress: 1634 abaka Ave. suite 1100, Los Santos, CA, 91114</p>
+            <p>Fax: 4211828382</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h2>Copyright 2022 Johns Hopkins University Front-end Initiative. All rights reserved. </h2>
+</div>
+
+
+<script>
+    var modal = document.getElementById("Modal");
+    var btn = document.getElementById("lgBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 
 </body>
 </html>
+
+

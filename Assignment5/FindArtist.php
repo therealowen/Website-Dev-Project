@@ -1,21 +1,34 @@
 <?php
-$paintings = file("ArtistInfo.txt");
-$delimiter = ',';	// the data is comma-delimited
+$printings = file("ArtistInfo.txt");
+$delimiter = ',';
 
-// loop through each line of the file
-if (in_array($row['name'],)
-{
-    // returns an array of strings where each element in the array
-    // corresponds to each substring between the delimiters
-    $paintingFields = explode($delimiter, $painting);
+$selection = $_GET['ArtistName'];
+
+$line = arrary();
+foreach ($paintings as $printings){
+    $paintingFields = explode($delimiter, $paintings);
+    $line[] = $paintingFields;
 
     $id= $paintingFields[0];
     $artist = $paintingFields[1];
     $title = $paintingFields[2];
     $year = $paintingFields[3];
+}
 
-    $output = $id . " " . $artist . " " . $title . " " . $year;
-    echo "<b>" . $output . "</b> <br />";
+foreach ($line as $painting){
+    $artist = $painting[1];
+
+    if ($artist == $line) {
+        $output = $id . " " . $artist . " " . $title . " " . $year;
+        echo "<b>" . $output . "</b> <br />";
+    }   else {
+        $temp++;
+    }
+
+    if ($temp == count($stack)) {
+        echo "No result found!";
+    }
 }
 
 ?>
+

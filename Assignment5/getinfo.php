@@ -25,7 +25,7 @@
 </head>
 <body>
 <?php
-$paintings = file("ArtData.txt");
+$paintings = file("ArtistInfo.txt");
 $delimiter = ',';	// the data is comma-delimited
 
 $aname = $_GET["aName"];
@@ -109,7 +109,8 @@ function build_table($array){
     $html .= '</table>';
     return $html;
 }
-echo build_table($tabel_arr);
+if(!empty($tabel_arr))
+    echo build_table($tabel_arr);
 ?>
 </body>
 </html>
